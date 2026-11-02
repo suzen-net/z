@@ -1,0 +1,7 @@
+title: Ziya Suzen
+description: Notes and writing by Ziya Suzen.
+url: https://ziya.suzen.net
+author: Ziya Suzen
+permalink: /:year/:month/:day/:title/
+exclude:
+  - README.md
