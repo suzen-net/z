@@ -5,3 +5,11 @@ author: Ziya Suzen
 permalink: /:year/:month/:day/:title/
 exclude:
   - README.md
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-sitemap
+social:
+  name: Ziya Suzen
+  links:
+    - https://github.com/mtmk

@@ -6,7 +6,8 @@
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/assets/icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+{% seo %}
+{% feed_meta %}
 <style>
   body { max-width: 42rem; margin: 2rem auto; padding: 0 1rem; font: 17px/1.6 system-ui, sans-serif; color: #222; background: #fff; }
   a { color: #0645ad; }
