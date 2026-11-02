@@ -1,8 +1,21 @@
 ---
 layout: default
 ---
+<section class="intro">
+<img src="{{ '/assets/icon-192.png' | relative_url }}" alt="Ziya Suzen" width="96" height="96">
+<div>
+<p>Hi, I'm Ziya. I write software, and recently started <a href="https://www.cienvita.com/">Cienvita</a>, a small family-run software company. This is where I keep notes on software development and related subjects.</p>
+<p class="links"><a href="https://github.com/mtmk">GitHub</a> | <a href="https://www.linkedin.com/in/ziyas">LinkedIn</a> | <a href="https://x.com/_mtmk">X</a></p>
+</div>
+</section>
+
+<h2>Posts</h2>
+{% if site.posts.size > 0 %}
 <ul>
 {% for post in site.posts %}
   <li><span class="date">{{ post.date | date: "%Y-%m-%d" }}</span> <a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
 {% endfor %}
 </ul>
+{% else %}
+<p class="date">Nothing here yet. First posts coming soon.</p>
+{% endif %}
