@@ -12,9 +12,11 @@ public transport, investment banking and telecoms, much of it on
 distributed systems.
 
 These days I do the engineering at [Cienvita](https://www.cienvita.com/),
-a family-run software company in County Durham that I run with my wife
-Rachel. The last couple of years have gone heavily into applied AI,
-alongside systems work like the projects below.
+a family-run software company in beautiful
+[County Durham](https://en.wikipedia.org/wiki/County_Durham), in the
+North East of England, that I run with my wife Rachel. The last couple
+of years have gone heavily into applied AI, alongside systems work like
+the projects below.
 
 ## Open source
 
