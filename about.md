@@ -47,6 +47,12 @@ name: Maxwell Troy Milton King, chosen because searching for it returned
 nothing at all. The initials, mtmk, have been my username ever since, or
 _mtmk where even that was taken, as on X.
 
+## How this site is made
+
+I write these posts with help from Claude, an AI assistant, which helps
+draft and edit them. I decide what goes in and check it. It also helped
+build the site itself. The opinions and any mistakes are mine.
+
 ## Elsewhere
 
 * GitHub: [github.com/mtmk](https://github.com/mtmk)
