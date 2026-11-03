@@ -3,6 +3,12 @@ layout: post
 title: "From a NATS client fix to a .NET API proposal"
 ---
 
+I wasn't planning to propose an API change to the .NET runtime, but I
+think this is how open source works. Years ago at a user meetup,
+[Kurt Zeilenga](https://www.openldap.org/project/kurt/), who founded the
+OpenLDAP project, told me that open source works best when someone needs
+something and shares the solution with the community as a contribution.
+
 This one started as a small cleanup in the NATS .NET client and ended
 with a new API going through .NET's review process. I wanted to write
 down how that went, because the path from "this is annoying" to "this
@@ -142,13 +148,9 @@ framework's own type, which does not have the new methods, so a library
 compiled against the package would fail at run time. Leaving it out was
 the safe choice.
 
-The PR is waiting for review as I write this.
+The PR is waiting for review as I write this, and I don't think it has
+had a proper one yet. It is too late for .NET 11, so I am hoping for
+.NET 12, but who knows.
 
-## What I took from it
-
-* Start from the concrete failure. "Go rejects this string with this
-  error" did more for the proposal than any argument about RFCs.
-* Write the alternatives section properly. Reviewers read it, and it is
-  where the bool-versus-enum decision now lives.
-* The review process is slow, months rather than days, but it is not a
-  black box. The meetings are public and the reasoning is written down.
+I used AI models for both: Anthropic's Claude Fable and xAI's Grok on
+the proposal, and OpenAI's GPT-6 Astra as well on the PR.

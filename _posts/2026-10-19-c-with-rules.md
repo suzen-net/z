@@ -3,6 +3,15 @@ layout: post
 title: "Writing C with borrowed rules, and what Zig does instead"
 ---
 
+I am kind of into bare-metal servers these days, the other end of the
+spectrum from container orchestration and lambdas, which are where most
+of the attention is. That got me thinking about using resources
+efficiently, which is not always the first thing on people's minds when
+a platform scales almost without limit. I needed something close to real
+time, with durability guarantees, that could live on very little memory,
+because the same machines host plenty of other things besides it. That
+is how msgsrvd was born.
+
 [msgsrvd](https://github.com/cienvita/msgsrvd) is a message log server I
 am writing at Cienvita. It runs on bare-metal Linux, every acknowledged
 write has to be on disk, and it is written in C99 with no libc: raw
@@ -192,5 +201,8 @@ languages with exceptions and a garbage collector.
 For this project, yes. I don't want to deal with concepts I can't see
 through, or with consequences I only find out about the hard way. In C
 everything the server does is in front of me, including the parts a
-compiler could have done for me, and writing those by hand is how I
-learned what they cost.
+compiler could have done for me, and writing and reviewing those myself,
+with a lot of help from Claude Code, is how I learned what they cost.
+
+I used Claude Code, Anthropic's AI coding tool, heavily on this
+project, mostly with the Claude Opus model.
