@@ -18,9 +18,11 @@ has to produce exactly the same string to interoperate.
 
 The .NET client had its own hand-rolled encoder for this, a loop over
 the url-safe alphabet that allocated a new `char[]` on every call. A
-contributor, to11mtm, had opened an
+contributor, [to11mtm](https://github.com/to11mtm), had opened an
 [issue](https://github.com/nats-io/nats.net/issues/557) about it back in
-2024. I picked it up and rewrote it in
+2024, and in a [follow-up PR](https://github.com/nats-io/nats.net/pull/565)
+noted that a built-in `Base64Url` type was coming with .NET 9 and could
+replace the encoder altogether. I picked it up and rewrote it in
 [nats.net#1199](https://github.com/nats-io/nats.net/pull/1199): encode
 into a stack buffer, and on .NET 9 and later use the built-in
 `Base64Url` type instead of the loop.
@@ -31,14 +33,14 @@ built-in encoder" version still had to add the `=` itself.
 
 ## Why not just leave the padding off
 
-.NET decodes base64url with or without padding, so it is tempting to
-think it does not matter. It does, because other languages are stricter:
+Decoding is the part that doesn't interoperate. .NET decodes base64url
+with or without padding, so it is tempting to think it does not matter. It does, because other languages are stricter:
 
 * Go's `base64.URLEncoding.DecodeString` fails with
   `illegal base64 data at input byte 40` when padding is missing.
 * Python's `base64.urlsafe_b64decode` fails with `Incorrect padding`.
 
-RFC 4648 treats the alphabet and the padding as separate choices and
+[RFC 4648](https://datatracker.ietf.org/doc/html/rfc4648) treats the alphabet and the padding as separate choices and
 leaves padding to whoever references it. Go, Python and Java all pad
 url-safe output by default and make the unpadded form the opt-in. So a
 .NET program producing unpadded output is fine until a Go or Python
@@ -72,7 +74,7 @@ method. It looked like the smallest possible change.
 
 ## The bool that would have bitten someone
 
-A couple of months later, another contributor, lilinus, pointed out a
+A couple of months later, another contributor, [lilinus](https://github.com/lilinus), pointed out a
 problem with the two streaming overloads. They already end in
 `bool isFinalBlock = true`. With my new overload added, this call:
 
